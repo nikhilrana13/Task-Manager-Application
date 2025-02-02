@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task manager</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+      <div class="w-full h-screen bg-zinc-900 p-10 gap-5 flex flex-col text-white">
+        <h1 class="text-3xl">Tasks</h1>
+        <a href="/" class="px-3 py-3 w-full sm:w-[200px] mt-5 bg-blue-600 text-center text-white rounded-md">Create a Task</a>
+        <div class="alltasks flex flex-wrap gap-5">
+         
+            <% if(task.length > 0 ){ %>
+                <% task.forEach(function(task) { %>
+                    <div class="flex flex-col w-75 border-1 border-gray-500 rounded-md gap-5 px-5 py-5">
+                        <label class="text-1xl">Title</label>
+                        <input class="block px-5 rounded-md outline-none py-2 bg-zinc-800 text-white" 
+                               type="text" name="title" value="<%= task.title %>" disabled>
+                        <label class="text-1xl">Description</label>
+                        <textarea class="block px-5 w-full rounded-md outline-none py-2 bg-zinc-800 resize-none text-white" 
+                                  name="details" disabled><%= task.details %></textarea>
+                         <div class="flex justify-between text-gray-500"> 
+                            <a href="/edit/<%= task._id %>" class="text-blue-500">Edit</a>
+                        <a href="/delete/<%= task._id %>" class="text-red-500">Delete</a>
+                         </div>
+                    </div>
+                 <% }) %>
+
+            <% } else { %> 
+                     
+                <div class="flex flex-col gap-5 p-3 ">
+                    <p class="text-3xl mt-5 text-white">No tasks yet</p>
+                     <a href="/" class="px-3 py-3 bg-blue-600 text-center text-white rounded-md">Create a Task</a>
+
+                </div>
+                   
+                <%} %>
+                   
+           
+        </div>
+        </div>
+      </div>
+</body>
+</html>

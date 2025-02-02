@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task manager</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+      <div class="w-full h-screen bg-zinc-900 p-10 gap-5 flex flex-col text-white">
+        <h1 class="text-3xl">Update Task</h1>
+          <form action="/update/<%= task._id %>" class="flex flex-col w-1/3 gap-5 px-5 py-5" method="post">
+            <input  class ="block px-5 w-full rounded-md outline-none py-2 bg-zinc-800 text-white" required type="text" name="title" value="<%= task.title %>">
+            <textarea class ="block px-5 w-full rounded-md outline-none py-2 bg-zinc-800 text-white" required type="text" name="details" rows="10"><%= task.details %></textarea>
+            <input class="mt-2 bg-blue-600 px-5 py-2 rounded-md" required type="submit" value="Update task">
+          </form>
+        
+         
+         
+        </div>
+      </div>
+</body>
+</html>
